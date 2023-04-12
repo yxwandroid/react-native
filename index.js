@@ -455,13 +455,22 @@ module.exports = {
         "PointPropType exported from 'deprecated-react-native-prop-types'.",
     );
   },
+  // get ViewPropTypes(): $FlowFixMe {
+  //   invariant(
+  //     false,
+  //     'ViewPropTypes has been removed from React Native. Migrate to ' +
+  //       "ViewPropTypes exported from 'deprecated-react-native-prop-types'.",
+  //   );
+  // },
+
   get ViewPropTypes(): $FlowFixMe {
-    invariant(
-      false,
+    console.warn(
       'ViewPropTypes has been removed from React Native. Migrate to ' +
-        "ViewPropTypes exported from 'deprecated-react-native-prop-types'.",
+      "ViewPropTypes exported from 'deprecated-react-native-prop-types'.",
     );
-  },
+    return require('deprecated-react-native-prop-types').ViewPropTypes;
+  }
+
 };
 
 if (__DEV__) {
